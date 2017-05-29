@@ -1,19 +1,5 @@
 public class BitwiseCalc {
 
-  //  public static void main(String[]args){
-  //    BitwiseCalc and1 = new BitwiseCalc();
-  //    BitwiseCalc or1 = new BitwiseCalc();
-  //    BitwiseCalc xor1 = new BitwiseCalc();
-  //    BitwiseCalc not1 = new BitwiseCalc();
-  //    String binary1 = "1110";
-  //    String binary2 = "0101";
-  //
-  //    System.out.println(binary1 + " 'and' " +binary2 + " = " + and1.and(binary1, binary2));
-  //    System.out.println(binary1 + " 'or' " +binary2 + " = " + or1.or(binary1, binary2));
-  //    System.out.println(binary1 + " 'xor' " +binary2 + " = " + xor1.xor(binary1, binary2));
-  //    System.out.println("'not' " +binary1 + " = " + not1.not(binary1));
-  //  }
-
   private static String addPaddingsTo(String input, int expectedLength) {
     return String.format("%" + expectedLength + "s", input);
   }
@@ -59,7 +45,7 @@ public class BitwiseCalc {
     }
     return res;
   }
-  
+
   public static String not(String binary) {
     String res = "";
     for (int i = 0; i < binary.length(); i++) {
