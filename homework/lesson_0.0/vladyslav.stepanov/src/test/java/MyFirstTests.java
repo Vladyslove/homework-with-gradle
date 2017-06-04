@@ -11,7 +11,6 @@ public class MyFirstTests {
 
   // Bitwise
 
-<<<<<<< HEAD
   @Test // won't be performed because there is no autofilling missing
   // zeros to lerf or right bitwise numbers in my BitwiseCalc.
   // Both bitwise numbers must have equal length
@@ -32,28 +31,7 @@ public class MyFirstTests {
 
      assertThat(BitwiseCalc.and(left, right), is("0000" + "1010"));
    }
-=======
-  // @Test // won't be performed because there is no autofilling missing
-  // // zeros to lerf or right bitwise numbers in my BitwiseCalc.
-  // // Both bitwise numbers must have equal length
-  //  public void testAndCalcIsThereAutoFillingOfMissingZeros() throws Exception {
-  //    String left = "11110011";
-  //    String right = "1111";
-  //
-  //    assertThat(BitwiseCalc.and(left, right), is("0000" + "0011"));
-  //  }
-  //
-  //  @Test // won't be performed because there is no autofilling missing
-  //  // zeros to lerf or right bitwise numbers in my BitwiseCalc
-  //  // Both bitwise numbers must have equal length
-  //
-  //  public void testAndCalcIsThereAutoFillingOfMissingZeros2() throws Exception {
-  //    String left = "1111";
-  //    String right = "10101010";
-  //
-  //    assertThat(BitwiseCalc.and(left, right), is("0000" + "1010"));
-  //  }
->>>>>>> c0a479e7ff7a2570bba79f0838955c51da260d65
+
 
   @Test
    public void testCalcOfAnd() throws Exception {
