@@ -4,15 +4,13 @@ public class BitwiseCalc {
     String res = "";
     for (int i = 0; i < binaryLeft.length(); i++ ) {
       if (binaryLeft.charAt(i) == '1' && binaryRight.charAt(i) == '1') {
-        // res += "1";
         res = res + "1";
-      } else { // if
-        // res += "0";
+      } else {
         res = res + "0";
       }
-    } //for
+    }
     return res;
-  } // and
+  }
 
   public static String or(String binaryLeft, String binaryRight) {
     String res = "";
@@ -50,4 +48,4 @@ public class BitwiseCalc {
     }
     return res;
   }
-} //java
+}
