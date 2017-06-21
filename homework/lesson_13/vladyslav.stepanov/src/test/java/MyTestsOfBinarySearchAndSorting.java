@@ -8,7 +8,7 @@ import algo.BubbleSortBinarySearch;
 
 import java.util.Arrays;
 
-public class AcceptanceTests {
+public class MyTestsOfBinarySearchAndSorting {
   @Test
   public void testExample() {
     BinarySearch bin = new BinarySearch() {
@@ -33,9 +33,9 @@ public class AcceptanceTests {
     MyObj obj2 = new MyObj();
     MyObj obj3 = new MyObj();
 
-    obj1.value = 0;
-    obj2.value = 1;
-    obj3.value = 2;
+    obj1.value = 1000;
+    obj2.value = 1111;
+    obj3.value = 2222;
 
     MyObj[] objects = {obj1, obj2, obj3};
     int index = bin.perform(objects, obj2);
@@ -51,9 +51,9 @@ public class AcceptanceTests {
     MyObj obj2 = new MyObj();
     MyObj obj3 = new MyObj();
 
-    obj1.value = 2;
-    obj2.value = 1;
-    obj3.value = 3;
+    obj1.value = 222;
+    obj2.value = 111;
+    obj3.value = 333;
 
     MyObj[] objects = {obj1, obj2, obj3};
     int index = bin.perform(objects, obj2);
@@ -62,14 +62,6 @@ public class AcceptanceTests {
     // The position is 0, not 1, which is a result of sort function inside BinarySearch.perform() method.
     // Therefore, we implement technically incorrect implementation. It works correctly only for sorted arrays ¯\_(ツ)_/¯
     // Even though the behaviour is incorrect for unsorted arrays case, for educational purposes it's fine :)
-    assertThat(index, is(0));
-  }
-
-  class MyObj implements Comparable {
-    int value;
-    public int compareTo(Object obj) {
-      MyObj another = (MyObj) obj;
-      return Integer.compare(value, another.value);
-    }
+    assertThat(index, is(1));
   }
 }
