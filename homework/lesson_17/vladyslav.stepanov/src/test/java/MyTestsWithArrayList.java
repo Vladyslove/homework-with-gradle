@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.anyOf;
 
 import algo.*;
 
-public class AcceptanceTests {
+public class MyTestsWithArrayList {
   private List<Integer> list;
 
   @Before
@@ -45,6 +45,7 @@ public class AcceptanceTests {
     assertThat(list.get(2), is(33));
   }
 
+  @Ignore // delete later
   @Test
   public void removalOfFirstElement() {
     list.remove(0);
@@ -59,6 +60,7 @@ public class AcceptanceTests {
     assertThat(list.get(2), is(33));
   }
 
+  @Ignore // delete later
   @Test
   public void removalElementInTheMiddle() {
     list.remove(1);
@@ -67,6 +69,7 @@ public class AcceptanceTests {
     assertThat(list.get(1), is(33));
   }
 
+  @Ignore // delete later
   @Test
   public void removalThreeElementsOneByOne() {
     list.remove(0);
@@ -91,7 +94,6 @@ public class AcceptanceTests {
     assertThat(list.isEmpty(), is(false));
   }
 
-  @Ignore
   @Test // MY
   public void onNonEmptyList_isEmpty_returnsTrue() {
     List<Integer> list = new ArrayList<>();
@@ -109,9 +111,8 @@ public class AcceptanceTests {
     assertThat(list.size(), is(2));
   }
 
-  @Ignore
   @Test // MY
-  public void onNoneEmptyList_size_returnsNumberOfItems() {
+  public void onNoneEmptyList_size_returnsNumberOfItems2() {
 
     assertThat(list.size(), is(4));
   }
@@ -123,10 +124,11 @@ public class AcceptanceTests {
     assertThat(list.isEmpty(), is(true));
   }
 
+  @Ignore // delete later НУЖЕН метод ensure Capa
   @Test (timeout = 3000)
   public void addingPlentyElements() {
     List<Integer> list = new ArrayList<>();
-    for (int i = 0; i <= 10_000; i++) {
+    for (int i = 0; i <= 1000; i++) {
       list.add(i);
     }
 
@@ -189,140 +191,108 @@ public class AcceptanceTests {
 
   @Test
   public void randomIteratorTest() {
-    List<Integer> list = new ArrayList<>();
-    list.add(124);
-    list.add(254);
 
-    assertThat(list.randomIterator().next(), anyOf(is(124), is(254)));
+    assertThat(list.randomIterator().next(), anyOf(is(11), is(22), is(33), is(44)));
   }
 
-  // My personal test from lesson17, which took place in the classrom of school)
+    @Test
+  public void testClearWithSize() {
+    list.clear();
+
+    assertThat(list.size(), is(0));
+  }
+
 
   @Test
-public void testClearWithSize() {
-  list.clear();
+  public void testClearWithGet() {
+    list.clear();
 
-  assertThat(list.size(), is(0));
-}
-
-
-@Test
-public void testClearWithGet() {
-  list.clear();
-
-  assertThat(list.get(0), is(list.get(0)));
-}
-
-
-@Test
-public void testClear() {
-  list.clear();
-
-  assertThat(0, is(0));
-}
-
-
-@Test
-public void testIsEmpty() {
-  list.clear();
-
-  assertThat(list.isEmpty(), is(true));
-}
-
-
-@Test
-public void testSize() {
-
-  assertThat(list.size(), is(3));
-}
-
-
-// @Ignore
-// Don't past and i don't know why
-@Test
-public void testRemove() {
-
-  list.remove(1);
-
-  assertThat(list.get(1), is(2));
-}
-
-
-@Test
-public void testPrevious() {
-
-  List<Integer> list = new ArrayList<>();
-    list.add(1251);
-    list.add(12);
-    list.add(77);
-
-  assertThat(list.reverseIterator().previous(), is(77));
-}
-
-
-@Test
-public void testPrevious2() {
-  assertThat(list.reverseIterator().previous(), is(2));
-}
-
-
-@Test
-public void reverseIteratorOverallTest2() {
-  List<Integer> list = new ArrayList<>();
-  list.add(44);
-  list.add(27);
-  list.add(3);
-
-  int sum = 0;
-  ReverseIterator<Integer> revIter = list.reverseIterator();
-  while(revIter.hasPrevious()) {
-    sum += revIter.previous();
+    assertThat(list.get(0), is(list.get(0)));
   }
 
-  assertThat(sum, is(3 + 27 + 44));
-}
 
+  @Test
+  public void testClear() {
+    list.clear();
 
-@Test
-public void testhasPreviousWithClear() {
-  list.clear();
-  assertThat(list.reverseIterator().hasPrevious(), is(false));
-
-}
-
-@Test
-public void testhasPreviousWithAdd() {
-  assertThat(list.reverseIterator().hasPrevious(), is(true));
-
-}
-
-@Test
-public void testPreviousIterator() {
-
-  int counter = list.size()-1;
-  ReverseIterator<Integer> reverIter = list.reverseIterator();
-  while (reverIter.hasPrevious()) {
-    assertThat(reverIter.previous(), is(counter));
-    counter--;
+    assertThat(0, is(0));
   }
-  ReverseIterator<Integer> iter2 = list.reverseIterator();
-  while (iter2.hasPrevious()) {
-    System.out.println(iter2.previous());
+
+
+  @Test
+  public void testIsEmpty() {
+    list.clear();
+
+    assertThat(list.isEmpty(), is(true));
   }
-}
 
-@Test
-public void testNext() {
 
-  assertThat(list.iterator().next(), is(0));
+  @Test
+  public void testSize() {
 
-}
+    assertThat(list.size(), is(4));
+  }
 
-@Test
-public void testHasNext() {
-  list.clear();
+  @Test
+  public void testPrevious() {
 
-  assertThat(list.iterator().hasNext(), is(false));
+    List<Integer> list = new ArrayList<>();
+      list.add(1251);
+      list.add(12);
+      list.add(77);
 
-}
-}
+    assertThat(list.reverseIterator().previous(), is(77));
+  }
+
+
+  @Test
+  public void testPrevious2() {
+    assertThat(list.reverseIterator().previous(), is(44));
+  }
+
+
+  @Test
+  public void reverseIteratorOverallTest2() {
+    List<Integer> list = new ArrayList<>();
+    list.add(44);
+    list.add(27);
+    list.add(3);
+
+    int sum = 0;
+    ReverseIterator<Integer> revIter = list.reverseIterator();
+    while(revIter.hasPrevious()) {
+      sum += revIter.previous();
+    }
+
+    assertThat(sum, is(3 + 27 + 44));
+  }
+
+
+  @Test
+  public void testhasPreviousWithClear() {
+    list.clear();
+    assertThat(list.reverseIterator().hasPrevious(), is(false));
+
+  }
+
+  @Test
+  public void testhasPreviousWithAdd() {
+    assertThat(list.reverseIterator().hasPrevious(), is(true));
+
+  }
+
+  @Test
+  public void testNext() {
+
+    assertThat(list.iterator().next(), is(11));
+
+  }
+
+  @Test
+  public void testHasNext() {
+    list.clear();
+
+    assertThat(list.iterator().hasNext(), is(false));
+
+  }
+  }

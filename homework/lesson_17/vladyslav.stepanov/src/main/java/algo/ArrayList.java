@@ -1,6 +1,8 @@
 package algo;
 
+
 public class ArrayList<T> implements List<T> {
+
   private int size = 0;
   private Object[] elements = new Object[10];
 
@@ -31,68 +33,45 @@ public class ArrayList<T> implements List<T> {
   }
 
   public Iterator<T> iterator() {
-    return new ArrayListIterator<>();
+    return new Iterator<T>() { // Anonim class
+      int currentIndex;
+      public boolean hasNext() {
+        return currentIndex != size;
+      }
+
+      public T next() {
+        return (T) elements[currentIndex++];
+      }
+
+    };
   }
 
   public ReverseIterator<T> reverseIterator() {
-    return new ArrayListReverseIterator<>();
-  }
+    return new ReverseIterator<T>() { // Anonim class
+      int previousIndex = size - 1;
+      public boolean hasPrevious() {
+        return (previousIndex != - 1);
+      }
 
-  public RandomlyIterable<T> randomIterator() {
-    return new ArrayListRandomlyIterable<>();
-  }
+      public T previous() {
+        return (T) (elements[previousIndex--]);
+      }
 
-  private class ArrayListRandomlyIterable<X> implements RandomlyIterable<T> {
-    private int randomIndex;
-
-    public T randomIterator() {
-      return (T) elements[randomIndex];
-    }
+    };
 
   }
 
-  private class ArrayListIterable<X> implements Iterable<T> {
+  public Iterator<T> randomIterator() {
+    return new Iterator<T>() { // Anonim class
+      private int randomIndex = ((int)(Math.random() * size));
 
-    public Iterator <T> iterator() {
-      return new Iterator<T>() { // Anonim class
-        int currentIndex;
-        public boolean hasNext() {
-          return currentIndex != size;
-        }
-
-        public T next() {
-          return (T) elements[currentIndex++];
-        }
-
-      };
-    }
-
-    public ReverseIterator<T> reverseIterator() {
-      return new ReverseIterator<T>() { // Anonim class
-        int previousIndex = size - 1;
-        public boolean hasPrevious() {
-          return previousIndex != - 1;
-        }
-
-        public T previous() {
-          return (T) elements[previousIndex--];
-        }
-
-      };
-
-    }
-
-  }
-  public ArrayListRandomlyIterable<T> randomIterator() {
-    return new RandomlyIterable<T>() {
-      int randomIndex = ((int)(Math.random() * size));
-      public boolean hasRandom() {
+      public boolean hasNext() {
         return randomIndex != -1;
       }
 
-      public T randomNext() {
+      public T next() {
           return (T) elements[randomIndex];
-        }
+      }
     };
   }
 }
