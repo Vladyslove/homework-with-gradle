@@ -1,7 +1,7 @@
 Домашнее задание:
 
-Задание представляет собой реализацию "Template Method" design pattern, с использованием алгоритмов поиска и сортировки. 
- 
+Задание представляет собой реализацию "Template Method" design pattern, с использованием алгоритмов поиска и сортировки.
+
 До того как приступить к выполнению задания, ознакомьтесь со следующими алгоритмами:
 * [Template Method design pattern](https://sourcemaking.com/design_patterns/template_method)
 * [Binary Search - бинарный поиск](https://www.youtube.com/watch?v=JQhciTuD3E8)
