@@ -44,7 +44,7 @@ public class AcceptanceTests {
 
     assertThat(index, is(1));
   }
-  
+
   @Test
   public void test_BubbleSortBinarySearch_WithUnSortedArray() {
     BinarySearch bin = new BubbleSortBinarySearch();
