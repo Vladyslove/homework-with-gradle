@@ -3,7 +3,7 @@ package algo;
 public abstract class BinarySearch {
   public final int perform(Object[] unsorted, Object toFind) {
     // your code here
-    int index = 0;
+    int index = -1;
     Object[] sorted = sort(unsorted);
     index = binarySearch(sorted, toFind);
     return index;
