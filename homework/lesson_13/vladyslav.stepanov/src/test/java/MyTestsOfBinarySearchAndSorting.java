@@ -51,12 +51,12 @@ public class MyTestsOfBinarySearchAndSorting {
     MyObj obj2 = new MyObj();
     MyObj obj3 = new MyObj();
 
-    obj1.value = 222;
-    obj2.value = 111;
-    obj3.value = 333;
+    obj1.value = 250;
+    obj2.value = 10;
+    obj3.value = 3000;
 
     MyObj[] objects = {obj1, obj2, obj3};
-    int index = bin.perform(objects, obj2);
+    int index = bin.perform(objects, obj1);
 
     //assertThat(index, is(1)); // here we don't have what we would expect.
     // The position is 0, not 1, which is a result of sort function inside BinarySearch.perform() method.
